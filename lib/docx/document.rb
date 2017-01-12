@@ -22,7 +22,7 @@ module Docx
     
     def initialize(path, &block)
       @replace = {}
-      @zip = Zip::File.open(path)
+      @zip = Zip::File.open(path, true)
       @document_xml = @zip.read('word/document.xml')
       @doc = Nokogiri::XML(@document_xml)
       @styles_xml = @zip.read('word/styles.xml')
